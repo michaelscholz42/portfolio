@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michael Scholz</title>
+<meta name="description" content="Portfolio of Michael Scholz, cybersecurity professional and M.S. Cybersecurity candidate at Old Dominion University. Projects, research, and experience in risk assessment, incident response, and AI security.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2317181A' d='M12 2 4 5v6c0 5.2 3.4 9.9 8 11 4.6-1.1 8-5.8 8-11V5l-8-3Z'/%3E%3Cpath fill='%237FB2D9' d='m10.8 14.6-2.4-2.4-1.2 1.2 3.6 3.6 6-6-1.2-1.2z'/%3E%3C/svg%3E">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap');
+
+  :root{
+    --navy:#17181A;
+    --navy-2:#1F2123;
+    --navy-3:#2A2D30;
+    --gold:#7FB2D9;
+    --gold-bright:#9DC8E6;
+    --bronze:#3E6D91;
+    --bronze-strong:#2E5471;
+    --bg:#F5F6F4;
+    --surface:#FFFFFF;
+    --surface-2:#ECEEE9;
+    --border:#DBDFD9;
+    --ink:#17181A;
+    --ink-soft:#40495a;
+    --ink-faint:#556170;
+    --on-navy:#F2F5F8;
+    --on-navy-soft:#A8B3BF;
+    --on-navy-faint:#7C8998;
+    --radius:4px;
+    --maxw:780px;
+    --maxw-wide:1120px;
+    --shadow: 0 1px 2px rgba(11,30,51,0.04), 0 10px 28px -14px rgba(11,30,51,0.16);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink-soft);
+    font-family:'Public Sans', system-ui, -apple-system, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  img{max-width:100%;}
+  a{color:inherit;}
+  h1,h2,h3{font-family:'Public Sans', sans-serif; text-wrap:balance; margin:0; font-weight:700; color:var(--ink); letter-spacing:-0.01em;}
+  .eyebrow{
+    font-size:0.74rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--bronze); font-weight:700;
+  }
+  .sr-only{
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+  .wrap-wide{max-width:var(--maxw-wide); margin:0 auto; padding:0 28px;}
+
+  .skip-link{
+    position:absolute; left:12px; top:-48px; z-index:100;
+    background:var(--gold); color:var(--navy); padding:10px 16px; border-radius:var(--radius);
+    text-decoration:none; font-size:0.86rem; font-weight:700;
+    transition:top .15s ease;
+  }
+  .skip-link:focus{top:12px;}
+
+  /* ---------- nav ---------- */
+  header.site-nav{
+    position:sticky; top:0; z-index:50;
+    background:var(--navy);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .nav-inner{
+    max-width:var(--maxw-wide); margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .brand{
+    display:flex; align-items:center; gap:11px;
+    font-weight:700; font-size:0.98rem;
+    text-decoration:none; color:var(--on-navy);
+  }
+  .brand-avatar{
+    width:34px; height:34px; border-radius:50%; object-fit:cover;
+    border:1.5px solid var(--gold); flex:none;
+  }
+  nav.links{display:flex; gap:28px; align-items:center;}
+  nav.links a{
+    font-size:0.87rem; text-decoration:none; color:var(--on-navy-soft);
+    font-weight:600; padding:4px 2px; border-bottom:2px solid transparent;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  nav.links a:hover, nav.links a:focus-visible{color:var(--on-navy); border-bottom-color:var(--gold);}
+  .nav-cta{
+    font-size:0.83rem; font-weight:700; padding:9px 18px; border-radius:var(--radius);
+    background:var(--gold); color:var(--navy); text-decoration:none;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--gold-bright);}
+  .nav-toggle{display:none;}
+
+  @media (max-width:760px){
+    nav.links{display:none;}
+    .nav-toggle{
+      display:inline-flex; align-items:center; justify-content:center;
+      width:36px; height:36px; border:1px solid rgba(255,255,255,0.25); border-radius:var(--radius);
+      background:transparent; color:var(--on-navy); cursor:pointer;
+    }
+    .nav-inner{flex-wrap:wrap;}
+    nav.links.open{
+      display:flex; flex-direction:column; gap:4px; width:100%;
+      order:3; padding-top:14px; border-top:1px solid rgba(255,255,255,0.12); margin-top:14px;
+    }
+    nav.links.open a{padding:10px 2px;}
+  }
+
+  :focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+
+  /* ---------- hero (dark navy) ---------- */
+  .hero{
+    background:
+      radial-gradient(1100px 460px at 85% -10%, rgba(201,154,78,0.14), transparent 60%),
+      linear-gradient(180deg, var(--navy) 0%, var(--navy) 100%);
+    padding:88px 0 76px;
+    border-bottom:3px solid var(--gold);
+  }
+  .hero .eyebrow{color:var(--gold); display:block; margin-bottom:20px;}
+  .type-heading{
+    color:var(--on-navy);
+    font-size:clamp(2.2rem, 5.6vw, 3.6rem); line-height:1.14; font-weight:800;
+    min-height:2.3em;
+  }
+  @media (min-width:640px){ .type-heading{ min-height:1.3em; } }
+  .typed-wrap{color:var(--gold-bright); white-space:pre-wrap;}
+  .cursor{
+    display:inline-block; width:3px; margin-left:2px; background:var(--gold-bright);
+    animation:blink 0.9s steps(1) infinite;
+  }
+  @keyframes blink{ 50%{ opacity:0; } }
+  @media (prefers-reduced-motion: reduce){ .cursor{ animation:none; opacity:1; } }
+
+  .hero-sub{
+    margin-top:22px; font-size:1.12rem; line-height:1.6; color:var(--on-navy-soft);
+    max-width:58ch;
+  }
+  .hero-meta{
+    margin-top:20px; font-size:0.9rem; color:var(--on-navy-faint); letter-spacing:0.01em;
+  }
+  .hero-actions{display:flex; flex-wrap:wrap; gap:14px; margin-top:34px;}
+
+  .btn{
+    font-size:0.87rem; font-weight:700;
+    padding:12px 22px; border-radius:var(--radius); text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px; border:1.5px solid transparent;
+    transition:transform .12s ease, background .15s ease, border-color .15s ease, color .15s ease;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn-gold{background:var(--gold); color:var(--navy);}
+  .btn-gold:hover{background:var(--gold-bright);}
+  .btn-outline-dark{border-color:rgba(242,245,248,0.35); color:var(--on-navy);}
+  .btn-outline-dark:hover{border-color:var(--gold); color:var(--gold-bright);}
+  .btn-navy{background:var(--navy); color:var(--on-navy);}
+  .btn-navy:hover{background:var(--navy-3);}
+  .btn-outline-light{border-color:var(--border); color:var(--ink);}
+  .btn-outline-light:hover{border-color:var(--bronze); color:var(--bronze-strong);}
+
+  /* ---------- section shell ---------- */
+  section{padding:68px 0;}
+  section + section{border-top:1px solid var(--border);}
+  .section-head{margin-bottom:36px; max-width:60ch;}
+  .section-head h2{font-size:clamp(1.5rem, 2.6vw, 1.95rem); margin-top:10px;}
+  .section-head p{color:var(--ink-soft); margin-top:10px; font-size:0.98rem;}
+
+  /* ---------- about ---------- */
+  .about-grid{display:grid; grid-template-columns:220px 1fr; gap:44px; align-items:start;}
+  .about-photo{
+    width:100%; aspect-ratio:7/19; object-fit:cover; object-position:top center;
+    border-radius:var(--radius); border:1px solid var(--border); box-shadow:var(--shadow);
+  }
+  @media (max-width:720px){
+    .about-grid{grid-template-columns:1fr;}
+    .about-photo{width:160px; aspect-ratio:7/19; margin:0 auto;}
+  }
+  .about-body p{max-width:68ch; color:var(--ink-soft); font-size:1.02rem;}
+  .about-body p + p{margin-top:14px;}
+  .about-body strong{color:var(--ink); font-weight:700;}
+  .pull{
+    font-size:1.22rem; font-weight:600; color:var(--navy);
+    border-left:3px solid var(--gold); padding-left:20px; margin:28px 0;
+    max-width:56ch; line-height:1.5;
+  }
+  .pull-cite{
+    display:block; font-size:0.85rem; font-weight:600; color:var(--bronze-strong);
+    margin-top:12px; text-decoration:none; border-bottom:1px solid transparent;
+  }
+  .pull-cite em{font-style:italic; font-weight:600;}
+  .pull-cite:hover, .pull-cite:focus-visible{border-bottom-color:var(--bronze-strong);}
+
+  /* ---------- experience (timeline) ---------- */
+  .timeline{position:relative; padding-left:28px; border-left:1px solid var(--border);}
+  .tl-progress-dot{
+    position:absolute; left:-28.5px; top:-7px; width:14px; height:14px;
+    border-radius:50%; background:var(--gold);
+    box-shadow:0 0 0 4px rgba(127,178,217,0.28), 0 2px 6px rgba(11,30,51,0.3);
+    transform:translate(-50%, 0); pointer-events:none;
+    transition:transform .08s linear;
+  }
+  @media (prefers-reduced-motion:reduce){ .tl-progress-dot{transition:none;} }
+  .tl-item{position:relative; padding-bottom:40px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:''; position:absolute; left:-28.5px; top:5px; width:10px; height:10px;
+    border-radius:50%; background:var(--bg); border:2.5px solid var(--bronze);
+    transform:translateX(-50%);
+  }
+  .tl-item .when{font-size:0.78rem; color:var(--ink-faint); letter-spacing:0.04em; font-weight:700; text-transform:uppercase;}
+  .tl-item h3{font-size:1.15rem; margin-top:6px;}
+  .tl-item .org{color:var(--ink-faint); font-size:0.92rem; margin-top:2px; font-weight:600;}
+  .tl-item ul{margin:14px 0 0; padding-left:18px; color:var(--ink-soft); font-size:0.94rem;}
+  .tl-item li + li{margin-top:7px;}
+  .tl-item li::marker{color:var(--bronze);}
+
+  .leadership-strip{
+    margin-top:46px; padding-top:30px; border-top:1px solid var(--border);
+    display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+  }
+  @media (max-width:700px){ .leadership-strip{grid-template-columns:1fr;} }
+  .leadership-strip .li-item .eyebrow{color:var(--navy);}
+  .leadership-strip h4{font-size:0.98rem; font-weight:700; margin-top:8px; color:var(--ink);}
+  .leadership-strip p{font-size:0.86rem; color:var(--ink-soft); margin-top:5px;}
+
+  /* ---------- projects (flip cards) ---------- */
+  .projects-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:24px;}
+  @media (max-width:760px){ .projects-grid{grid-template-columns:1fr;} }
+
+  .project-card{perspective:1800px;}
+  .flip-inner{
+    position:relative; width:100%; min-height:510px;
+    transform:rotateY(0deg) translateY(0) scale(1);
+    transition:transform .5s cubic-bezier(.65,0,.35,1);
+    transform-style:preserve-3d;
+  }
+  .project-card:not(.is-flipped):hover .flip-inner,
+  .project-card:not(.is-flipped):focus-within .flip-inner{
+    transform:rotateY(0deg) translateY(-4px) scale(1);
+  }
+  .project-card.is-flipped .flip-inner{transform:rotateY(180deg) translateY(-4px) scale(1.015);}
+  @media (prefers-reduced-motion:reduce){ .flip-inner{transition:none;} }
+
+  .flip-face{
+    position:absolute; inset:0; backface-visibility:hidden; -webkit-backface-visibility:hidden;
+    border:1px solid var(--border); border-radius:var(--radius);
+    background:var(--surface); box-shadow:var(--shadow);
+    overflow:hidden;
+    transition:box-shadow .5s ease, border-color .5s ease;
+  }
+  .project-card.is-flipped .flip-face{
+    border-color:var(--bronze);
+    box-shadow:0 0 0 1px var(--bronze), 0 22px 44px -18px rgba(11,30,51,0.35);
+  }
+  .flip-back{transform:rotateY(180deg);}
+
+  .corner-index{
+    position:absolute; top:14px; right:16px; font-size:0.68rem; font-weight:700;
+    color:var(--ink-faint); font-variant-numeric:tabular-nums; letter-spacing:0.08em;
+    opacity:0.7;
+  }
+
+  .scan-sheen{
+    position:absolute; inset:0; pointer-events:none; z-index:2;
+    background:linear-gradient(115deg, transparent 30%, color-mix(in srgb, var(--bronze) 30%, transparent) 50%, transparent 70%);
+    transform:translateX(-130%); opacity:0;
+  }
+  .scan-sheen.is-active{animation:scanSweep .7s ease;}
+  @keyframes scanSweep{
+    0%{transform:translateX(-130%); opacity:0;}
+    12%{opacity:1;}
+    100%{transform:translateX(130%); opacity:0;}
+  }
+  @media (prefers-reduced-motion:reduce){ .scan-sheen.is-active{animation:none; opacity:0;} }
+
+  .flip-trigger{
+    all:unset; box-sizing:border-box; display:flex; flex-direction:column;
+    width:100%; height:100%; padding:30px; cursor:pointer; position:relative;
+  }
+  .flip-trigger:focus-visible{outline:2px solid var(--gold); outline-offset:-3px;}
+  .project-icon{width:32px; height:32px; color:var(--bronze-strong); flex:none;}
+  .flip-front h3{font-size:1.3rem; margin-top:18px;}
+  .front-status{
+    margin-top:12px; font-size:0.76rem; font-weight:800; letter-spacing:0.05em; text-transform:uppercase;
+    display:inline-flex; align-items:center; gap:7px;
+  }
+  .front-status .dot{width:6px; height:6px; border-radius:50%; background:currentColor; flex:none;}
+  .front-status.live{color:var(--bronze-strong);}
+  .front-status.academic{color:var(--navy);}
+  .front-status.build{color:var(--ink-faint);}
+  .flip-hint{
+    margin-top:auto; padding-top:18px; font-size:0.78rem; font-weight:600; color:var(--ink-faint);
+    display:flex; align-items:center; gap:6px;
+  }
+  .flip-hint svg{width:15px; height:15px;}
+
+  .flip-back-inner{display:flex; flex-direction:column; height:100%; padding:26px; overflow-y:auto;}
+  .flip-back-header{display:flex; justify-content:space-between; align-items:flex-start; gap:12px;}
+  .flip-back-header h3{font-size:1.08rem;}
+  .back-trigger{
+    all:unset; cursor:pointer; color:var(--ink-faint); font-size:0.76rem; font-weight:700;
+    display:inline-flex; align-items:center; gap:5px; flex:none; white-space:nowrap;
+  }
+  .back-trigger:hover{color:var(--bronze-strong);}
+  .back-trigger:focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+  .flip-back p.desc{margin-top:12px; font-size:0.87rem; color:var(--ink-soft);}
+  .flip-back p.role{margin-top:12px; font-size:0.82rem; color:var(--ink-faint);}
+  .flip-back p.role strong{color:var(--ink-soft); font-weight:700;}
+  .back-tags{margin-top:12px; font-size:0.76rem; color:var(--ink-faint);}
+  .flip-back .entry-link{
+    margin-top:auto; padding-top:14px; font-size:0.82rem; font-weight:700;
+    color:var(--bronze-strong); text-decoration:none; align-self:flex-start;
+  }
+  .flip-back .entry-link:hover{color:var(--bronze);}
+  .flip-back .entry-link + .entry-link{margin-top:8px; padding-top:0;}
+  .flip-back .inline-link{color:var(--bronze-strong); text-decoration:underline; text-decoration-color:transparent; transition:text-decoration-color .15s ease;}
+  .flip-back .inline-link:hover, .flip-back .inline-link:focus-visible{text-decoration-color:var(--bronze-strong);}
+
+  /* ---------- research ---------- */
+  .research-list{display:flex; flex-direction:column; gap:22px;}
+  .paper{
+    border:1px solid var(--border); border-radius:var(--radius);
+    padding:28px; background:var(--surface); box-shadow:var(--shadow);
+  }
+  .paper-top{display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; align-items:flex-start;}
+  .paper h3{font-size:1.13rem; max-width:56ch;}
+  .paper .meta{font-size:0.78rem; color:var(--ink-faint); margin-top:8px; font-weight:600;}
+  .paper p.abs{color:var(--ink-soft); font-size:0.94rem; margin-top:16px; max-width:70ch;}
+  .status{
+    font-size:0.68rem; font-weight:800; letter-spacing:0.05em;
+    text-transform:uppercase; padding:5px 10px; border-radius:20px; white-space:nowrap;
+    display:inline-flex; align-items:center; gap:6px;
+  }
+  .status.academic{color:var(--navy); border:1px solid var(--navy); background:#E7ECF1;}
+  .status .dot{width:5px; height:5px; border-radius:50%; background:currentColor;}
+  .card-link{
+    font-size:0.83rem; font-weight:700;
+    color:var(--bronze-strong); text-decoration:none; display:inline-flex; align-items:center; gap:6px;
+  }
+  .card-link:hover{color:var(--bronze);}
+  .paper .card-link{margin-top:18px;}
+
+  /* ---------- skills ---------- */
+  .skills-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px 30px;}
+  @media (max-width:820px){ .skills-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .skills-grid{grid-template-columns:1fr;} }
+  .skill-group .eyebrow{color:var(--navy);}
+  .skill-group h4{font-size:1rem; font-weight:700; margin-top:8px; color:var(--ink);}
+  .skill-group ul{list-style:none; margin:14px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:7px;}
+  .skill-group li{
+    font-size:0.76rem; font-weight:600; color:var(--ink-soft);
+    border:1px solid var(--border); background:var(--surface); padding:5px 9px; border-radius:3px;
+  }
+  .certs{margin-top:38px; padding-top:32px; border-top:1px solid var(--border); display:flex; gap:30px; flex-wrap:wrap;}
+  .cert{display:flex; gap:14px; align-items:flex-start; max-width:340px;}
+  .cert .badge{
+    width:40px; height:40px; flex:none; border-radius:50%;
+    background:var(--navy); color:var(--gold-bright);
+    display:flex; align-items:center; justify-content:center;
+    font-size:0.7rem; font-weight:800;
+  }
+  .cert h5{font-size:0.92rem; font-weight:700; margin:0; color:var(--ink);}
+  .cert p{font-size:0.83rem; color:var(--ink-soft); margin:4px 0 0;}
+
+  /* ---------- connect ---------- */
+  .connect-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  @media (max-width:760px){ .connect-grid{grid-template-columns:1fr;} }
+
+  .social-card{
+    border:1px solid var(--border); border-radius:var(--radius);
+    background:var(--surface); box-shadow:var(--shadow);
+    padding:26px; display:flex; flex-direction:column; gap:15px;
+  }
+  .social-card .head{display:flex; align-items:center; gap:11px;}
+  .social-card .icon{
+    width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    background:var(--navy); color:var(--gold-bright); flex:none;
+  }
+  .social-card h4{font-size:1.02rem; font-weight:700; color:var(--ink);}
+
+  .tiktok-bubble{
+    display:inline-flex; align-items:center; gap:10px; align-self:flex-start;
+    background:var(--navy); color:var(--on-navy); text-decoration:none;
+    padding:11px 18px 11px 13px; border-radius:30px; font-size:0.85rem; font-weight:700;
+  }
+  .tiktok-bubble:hover{background:var(--navy-3);}
+  .tiktok-bubble .pulse{
+    width:8px; height:8px; border-radius:50%; background:var(--gold-bright);
+    box-shadow:0 0 0 0 rgba(221,183,114,0.6);
+    animation:pulse 2.4s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(221,183,114,0.55);}
+    70%{box-shadow:0 0 0 9px rgba(221,183,114,0);}
+    100%{box-shadow:0 0 0 0 rgba(221,183,114,0);}
+  }
+
+
+  .contact-line{
+    display:flex; flex-wrap:wrap; gap:14px 28px; align-items:center; margin-top:10px;
+  }
+  .contact-line a{
+    font-size:0.92rem; font-weight:600; text-decoration:none; color:var(--ink);
+    border-bottom:1px solid var(--border); padding-bottom:2px;
+  }
+  .contact-line a:hover{border-color:var(--bronze); color:var(--bronze-strong);}
+
+  footer{background:var(--navy); padding:36px 0;}
+  footer .foot-inner{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;
+    font-size:0.8rem; color:var(--on-navy-faint);
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#top">Skip to main content</a>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand"><img class="brand-avatar" src="michael-avatar.jpg" alt="" width="34" height="34">Michael Scholz</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 4h14M1 8h14M1 12h14" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </button>
+    <nav class="links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#research">Research</a>
+      <a href="#skills">Skills</a>
+      <a href="#connect">Connect</a>
+    </nav>
+    <a class="nav-cta" href="#connect">Get in touch</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Raleigh / Durham, NC</p>
+      <h1 class="type-heading">
+        I am <span class="typed-wrap" aria-hidden="true"><span id="typedText"></span><span class="cursor"></span></span>
+        <span class="sr-only">Michael Scholz: Information Systems Security Officer (ISSO), AI Security Consultant, and Co-Founder.</span>
+      </h1>
+      <p class="hero-sub">I secure networks and harden identities by trade, and study where traditional cybersecurity stops working once the systems it protects start making their own decisions.</p>
+      <p class="hero-meta">M.S. Cybersecurity, ODU &rsquo;26 &nbsp;&middot;&nbsp; CompTIA Security+ &nbsp;&middot;&nbsp; AWS Cloud Practitioner</p>
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="#projects">View projects</a>
+        <a class="btn btn-outline-dark" href="#research">Thesis &amp; research</a>
+        <a class="btn btn-outline-dark" href="#connect">Connect</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">About</p>
+        <h2>Where risk assessment meets AI governance</h2>
+      </div>
+      <div class="about-grid">
+        <img class="about-photo" src="michael-about.jpg" alt="Michael Scholz, in a graduation gown, standing in front of the Old Dominion University School of Cybersecurity sign.">
+        <div>
+          <div class="about-body">
+            <p>I'm a cybersecurity professional with hands-on experience leading <strong>risk and vulnerability assessments</strong>, building cybersecurity architecture aligned with <strong>NIST CSF</strong>, and evaluating enterprise programs to find gaps before they become incidents. That work has meant investigating security incidents end to end: scoping indicators of compromise, running root-cause analysis, and shipping remediation like enforced MFA, conditional access, and least-privilege baselines, then briefing the outcome to both engineers and executives.</p>
+            <p>I'm finishing a Master's in Cybersecurity at Old Dominion University, where my research follows a simple observation: most cybersecurity practice was built for deterministic software, and <strong>AI systems don't behave that way</strong>. My thesis, the AI Workflow Lifecycle Framework (AWLF), treats AI adoption as an organizational capability to be governed, not a one-off software project to be shipped and forgotten.</p>
+            <p>I lead best when the problem is unowned: I've directed a 500-member university organization, co-founded a cybersecurity startup, and stepped into an advisory role on a commercial AI SOC platform simply because the questions needed answering.</p>
+          </div>
+          <p class="pull">"As AI evolves from isolated tools to structured organizational capabilities, enterprises require governance models that extend beyond risk management and software development frameworks."<a class="pull-cite" href="awlf-thesis-scholz.pdf" target="_blank" rel="noopener">Scholz, <em>Secure-by-Design AI Workflows: The AI Workflow Lifecycle Framework</em>, Old Dominion University, 2026</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Experience</p>
+        <h2>Professional track record</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-progress-dot" aria-hidden="true"></div>
+        <div class="tl-item">
+          <div class="when">Jan 2026 – Sep 2026</div>
+          <h3>Cybersecurity Analyst</h3>
+          <div class="org">Valor Cybersecurity · Norfolk, VA</div>
+          <ul>
+            <li>Led risk and vulnerability assessments of client endpoint, identity, and cloud environments; built mitigation strategies aligned to NIST CSF and HIPAA and tracked remediation to closure.</li>
+            <li>Investigated security incidents by analyzing endpoint, identity, and cloud telemetry to determine indicators of compromise, scope, and root cause; executed emergency response and remediation, including MFA enforcement, conditional access, and least-privilege baselines.</li>
+            <li>Provided technical oversight using Microsoft Defender and Microsoft 365 security tools to strengthen endpoint protection, identity security, and threat visibility across client tenants.</li>
+            <li>Configured Zero Trust cloud identity, access controls, and security baselines; architected and led security for the CyberShield Platform (Electron / Next.js / Supabase), hardening RLS, JWT auth, and API endpoints against injection and broken auth.</li>
+            <li>Integrated AI-driven detection tooling into threat hunting and incident response workflows, tuning false-positive rates and measuring detection efficacy; briefed executive stakeholders on emerging threats.</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="when">Jan 2025 – May 2025</div>
+          <h3>Cyber Risk Management Intern</h3>
+          <div class="org">Commonwealth Cyber Initiative · Virginia Beach, VA</div>
+          <ul>
+            <li>Led comprehensive risk and vulnerability assessments for small and mid-sized organizations, aligning findings to NIST CSF to prioritize remediation.</li>
+            <li>Developed long-range system security strategies (policies, standards, and control documentation) to support compliance and audit readiness.</li>
+            <li>Evaluated cybersecurity programs by assessing configurations and identifying gaps in access control, system hardening, and incident-response preparedness; advised clients on Azure and Microsoft 365 security.</li>
+            <li>Acted as analyst team lead, translating technical findings into plain language for non-technical stakeholders and leadership.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="leadership-strip">
+        <div class="li-item">
+          <p class="eyebrow">2025</p>
+          <h4>President, Inter-Fraternity Council, ODU</h4>
+          <p>Led a ~500-member organization across multiple chapters; owned day-to-day operations, risk and compliance, and communication with university leadership.</p>
+        </div>
+        <div class="li-item">
+          <p class="eyebrow">2024</p>
+          <h4>VP of Recruitment, Sigma Phi Epsilon</h4>
+          <p>Directed chapter recruitment and onboarding strategy, increasing new-member recruitment by 80%.</p>
+        </div>
+        <div class="li-item">
+          <p class="eyebrow">2022</p>
+          <h4>Eagle Scout, Boy Scouts of America</h4>
+          <p>Earned Scouting's highest rank, capping a long-run project in planning and leading a service project to completion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap-wide">
+      <div class="section-head">
+        <p class="eyebrow">Projects</p>
+        <h2>Things I've built, hardened, and shipped</h2>
+        <p>From a commercial AI SOC platform to a LAN-based security teaching tool, the common thread is making systems defensible by design.</p>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <span class="scan-sheen" aria-hidden="true"></span>
+              <button class="flip-trigger" type="button" aria-expanded="false" aria-label="Show details for The Fort">
+                <span class="corner-index" aria-hidden="true">01</span>
+                <svg class="project-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3.5 19 6.3v5c0 5.1-3.3 8.6-7 9.9-3.7-1.3-7-4.8-7-9.9v-5L12 3.5Z"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg>
+                <h3>The Fort</h3>
+                <span class="front-status live"><span class="dot"></span>Live, 2 customers</span>
+                <span class="flip-hint">View details <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </button>
+            </div>
+            <div class="flip-face flip-back" aria-hidden="true">
+              <span class="scan-sheen" aria-hidden="true"></span>
+              <div class="flip-back-inner">
+                <div class="flip-back-header">
+                  <h3>The Fort</h3>
+                  <button class="back-trigger" type="button" tabindex="-1" aria-expanded="true" aria-label="Return to The Fort summary">
+                    <svg aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> Back
+                  </button>
+                </div>
+                <p class="desc">An AI-driven SOC platform where a set of coordinated AI agents connect directly to firewall and IPS APIs to continuously monitor client networks, run automated penetration testing, and correlate live threat-intelligence feeds. The platform then translates raw network analysis into two distinct report formats: one for IT staff, one for non-technical executives.</p>
+                <p class="role"><strong>My role:</strong> advised on security architecture, trained and evaluated the detection models, and led QA testing, built in partnership with the founder, whose home lab I also helped design.</p>
+                <p class="back-tags">AI Agents &middot; Firewall / IPS APIs &middot; Threat Intel &middot; Automated Pentesting</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <span class="scan-sheen" aria-hidden="true"></span>
+              <button class="flip-trigger" type="button" aria-expanded="false" aria-label="Show details for CyberShield Platform">
+                <span class="corner-index" aria-hidden="true">02</span>
+                <svg class="project-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 11 12 4l8 7"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg>
+                <h3>CyberShield Platform</h3>
+                <span class="front-status build"><span class="dot"></span>In beta</span>
+                <span class="flip-hint">View details <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </button>
+            </div>
+            <div class="flip-face flip-back" aria-hidden="true">
+              <span class="scan-sheen" aria-hidden="true"></span>
+              <div class="flip-back-inner">
+                <div class="flip-back-header">
+                  <h3>CyberShield Platform</h3>
+                  <button class="back-trigger" type="button" tabindex="-1" aria-expanded="true" aria-label="Return to CyberShield Platform summary">
+                    <svg aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> Back
+                  </button>
+                </div>
+                <p class="desc">The flagship product of CyberShield, the startup I co-founded: a full-stack home cybersecurity application for network scanning, device enumeration, and household risk analysis. I lead its security posture end to end: hardening Supabase Row-Level Security and JWT auth policies, securing API endpoints, and enforcing secure-coding practices against injection, broken auth, and data exposure.</p>
+                <p class="role"><strong>My role:</strong> co-founder, security architecture, hardening, and secure API design.</p>
+                <p class="back-tags">Electron &middot; Next.js &middot; Supabase &middot; Row-Level Security</p>
+                <a class="entry-link" href="https://mycybershield.app" target="_blank" rel="noopener" tabindex="-1">Visit mycybershield.app →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <span class="scan-sheen" aria-hidden="true"></span>
+              <button class="flip-trigger" type="button" aria-expanded="false" aria-label="Show details for sPONG and cPONG">
+                <span class="corner-index" aria-hidden="true">03</span>
+                <svg class="project-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="7" width="2.2" height="10" rx="1"/><rect x="17.8" y="7" width="2.2" height="10" rx="1"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/></svg>
+                <h3>sPONG &amp; cPONG</h3>
+                <span class="front-status academic"><span class="dot"></span>Presented, ODU Expo</span>
+                <span class="flip-hint">View details <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </button>
+            </div>
+            <div class="flip-face flip-back" aria-hidden="true">
+              <span class="scan-sheen" aria-hidden="true"></span>
+              <div class="flip-back-inner">
+                <div class="flip-back-header">
+                  <h3>sPONG &amp; cPONG</h3>
+                  <button class="back-trigger" type="button" tabindex="-1" aria-expanded="true" aria-label="Return to sPONG and cPONG summary">
+                    <svg aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> Back
+                  </button>
+                </div>
+                <p class="desc">A pair of Secure Socket Service applications that stage an extended, LAN-hosted version of Pong for Capture-the-Flag events. sPONG is a client-server desktop app exposing live LAN telemetry, audited events, and manipulated TCP/UDP traffic; its companion cPONG gives players a simple interface into those same sockets. Built to make Zero Trust, load balancing, and proxy servers visible and explorable rather than theoretical.</p>
+                <p class="role"><strong>Presented at:</strong> the ODU Knowledge &amp; Creativity Expo. <strong>Published in:</strong> ODU Digital Commons.</p>
+                <p class="role">Also indexed in the Digital Commons Network under <a class="inline-link" href="https://network.bepress.com/physical-sciences-and-mathematics/computer-sciences/software-engineering/" target="_blank" rel="noopener" tabindex="-1">Software Engineering</a>, <a class="inline-link" href="https://network.bepress.com/hgg/discipline/144" target="_blank" rel="noopener" tabindex="-1">Systems Architecture</a>, and <a class="inline-link" href="https://network.bepress.com/hgg/discipline/1459" target="_blank" rel="noopener" tabindex="-1">Cybersecurity</a>.</p>
+                <p class="back-tags">Client-Server &middot; TCP / UDP &middot; Zero Trust &middot; Load Balancing &middot; Proxy Servers</p>
+                <a class="entry-link" href="https://digitalcommons.odu.edu/knowledge_expo/2026expo/postersession2/47/" target="_blank" rel="noopener" tabindex="-1">Read the abstract on ODU Digital Commons →</a>
+                <a class="entry-link" href="spong-cpong-poster.pdf" target="_blank" rel="noopener" tabindex="-1">View the poster (PDF) →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <span class="scan-sheen" aria-hidden="true"></span>
+              <button class="flip-trigger" type="button" aria-expanded="false" aria-label="Show details for Enterprise-Grade Home Lab">
+                <span class="corner-index" aria-hidden="true">04</span>
+                <svg class="project-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4.5" y="4.5" width="15" height="6" rx="1"/><rect x="4.5" y="13.5" width="15" height="6" rx="1"/><circle cx="8" cy="7.5" r="0.9" fill="currentColor" stroke="none"/><circle cx="8" cy="16.5" r="0.9" fill="currentColor" stroke="none"/></svg>
+                <h3>Enterprise-Grade Home Lab</h3>
+                <span class="front-status build"><span class="dot"></span>Operational</span>
+                <span class="flip-hint">View details <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </button>
+            </div>
+            <div class="flip-face flip-back" aria-hidden="true">
+              <span class="scan-sheen" aria-hidden="true"></span>
+              <div class="flip-back-inner">
+                <div class="flip-back-header">
+                  <h3>Enterprise-Grade Home Lab</h3>
+                  <button class="back-trigger" type="button" tabindex="-1" aria-expanded="true" aria-label="Return to Enterprise-Grade Home Lab summary">
+                    <svg aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> Back
+                  </button>
+                </div>
+                <p class="desc">A segmented home lab built to enterprise conventions: VLAN separation, hardened pfSense/OPNsense firewalls, and a deployed SIEM with IDS/IPS monitoring under Zero Trust principles. It has detected and blocked real, observed external attackers in the wild via adaptive firewall rules and a deployed honeypot, and doubles as the automation testbed behind my Nmap, Nessus, and Wireshark-based vulnerability workflows.</p>
+                <p class="role"><strong>Outcome:</strong> automated scan-and-assessment scripting that removed hours of manual work per cycle.</p>
+                <p class="back-tags">pfSense / OPNsense &middot; SIEM, IDS/IPS &middot; VLAN Segmentation &middot; Python / Bash</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="research">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Research</p>
+        <h2>Academic work on AI security</h2>
+        <p>Graduate coursework and thesis research, written as class deliverables rather than peer-reviewed publications, but the arguments are load-bearing for how I think about AI risk.</p>
+      </div>
+
+      <div class="research-list">
+        <div class="paper">
+          <div class="paper-top">
+            <div>
+              <h3>Secure-by-Design AI Workflows: The AI Workflow Lifecycle Framework (AWLF) for Managing AI as an Organizational Capability</h3>
+              <div class="meta">Master's Thesis · CYSE 698 · Old Dominion University · Advisor: Dr. Sultuk Karahan · 2026</div>
+            </div>
+            <span class="status academic"><span class="dot"></span>Master's thesis</span>
+          </div>
+          <p class="abs">Existing AI guidance largely treats risk management and cybersecurity as the whole problem, leaving the rest of the organizational lifecycle unaddressed. AWLF proposes a conceptual framework for managing AI workflows as ongoing organizational capabilities rather than one-time software projects: establishing a working definition of "AI workflow," the lifecycle framework itself, and a secure-by-design operational philosophy for enterprise adoption. It positions business need as the trigger for adoption and emphasizes executive sponsorship, governance, and continuous lifecycle management, designed to complement existing frameworks like NIST CSF 2.0 and the AI Risk Management Framework.</p>
+          <a class="card-link" href="awlf-thesis-scholz.pdf" target="_blank" rel="noopener">Read the full thesis (PDF) →</a>
+        </div>
+
+        <div class="paper">
+          <div class="paper-top">
+            <div>
+              <h3>Securing Artificial Intelligence Systems: Adapting Traditional Cybersecurity to a New Domain</h3>
+              <div class="meta">Graduate coursework paper · Old Dominion University · 2026</div>
+            </div>
+            <span class="status academic"><span class="dot"></span>Coursework paper</span>
+          </div>
+          <p class="abs">Argues that traditional cybersecurity approaches are insufficient for protecting AI systems, and that closing the gap requires new, purpose-built security strategies. Examines AI-specific threat vectors (data poisoning, adversarial attacks, and model exploitation) alongside the "black box" opacity that makes manipulated AI outputs hard to detect, and evaluates where frameworks like NIST's AI Risk Management Framework 1.0 fall short on technical, AI-specific threats.</p>
+          <a class="card-link" href="securing-ai-systems-scholz.pdf" target="_blank" rel="noopener">Read the full paper (PDF) →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap-wide">
+      <div class="section-head">
+        <p class="eyebrow">Skills</p>
+        <h2>Technical competencies</h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-group">
+          <p class="eyebrow">Detect &amp; Respond</p>
+          <h4>Threat Detection &amp; Incident Response</h4>
+          <ul>
+            <li>Microsoft Defender</li><li>SIEM fundamentals</li><li>Log analysis</li>
+            <li>AI-driven detection</li><li>Emergency response</li><li>Forensic analysis</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <p class="eyebrow">Assess &amp; Exploit</p>
+          <h4>Vulnerability Assessment</h4>
+          <ul>
+            <li>Nmap</li><li>Nessus</li><li>Wireshark</li><li>Burp Suite</li>
+            <li>OWASP ZAP</li><li>Kali Linux</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <p class="eyebrow">Design &amp; Govern</p>
+          <h4>Security Architecture</h4>
+          <ul>
+            <li>Zero Trust</li><li>NIST CSF</li><li>CIA Triad</li>
+            <li>IAM</li><li>Network segmentation</li><li>IDS / IPS</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <p class="eyebrow">Deploy</p>
+          <h4>Cloud &amp; Platforms</h4>
+          <ul>
+            <li>AWS</li><li>Microsoft Azure</li><li>Microsoft 365</li>
+            <li>Linux (Ubuntu, Kali)</li><li>macOS</li><li>Windows</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <p class="eyebrow">Automate</p>
+          <h4>Scripting &amp; Tooling</h4>
+          <ul>
+            <li>Python</li><li>Bash</li><li>PowerShell</li><li>OOP</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <p class="eyebrow">Comply</p>
+          <h4>Frameworks &amp; Compliance</h4>
+          <ul>
+            <li>HIPAA</li><li>Post-incident documentation</li><li>Gap analysis</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="certs">
+        <div class="cert">
+          <div class="badge">S+</div>
+          <div>
+            <h5>CompTIA Security+ (SY0-701)</h5>
+            <p>Industry-standard certification covering threat management, cryptography, identity and access management, risk management, and incident response.</p>
+          </div>
+        </div>
+        <div class="cert">
+          <div class="badge">AWS</div>
+          <div>
+            <h5>AWS Certified Cloud Practitioner</h5>
+            <p>Foundational certification covering cloud architecture, security, compliance, and the shared responsibility model.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="connect">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Connect</p>
+        <h2>Find the rest of the work</h2>
+        <p>The professional record lives on LinkedIn; the more casual breakdown of cybersecurity concepts lives on TikTok.</p>
+      </div>
+
+      <div class="connect-grid">
+        <div class="social-card">
+          <div class="head">
+            <span class="icon">
+              <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6.94 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM3.4 8.75h7v11.5h-7z" fill="currentColor"/><path d="M10.4 8.75h6.7v1.6h.1c.93-1.65 3.2-1.6 3.2-1.6 3.6 0 4.3 2.3 4.3 5.4v6.1h-3.9V15c0-1.5-.03-3.4-2.2-3.4-2.2 0-2.5 1.6-2.5 3.3v5.35h-3.4v-11.5Z" fill="currentColor"/></svg>
+            </span>
+            <h4>Connect on LinkedIn</h4>
+          </div>
+          <p style="color:var(--ink-soft); font-size:0.9rem;">Where the professional record lives: experience, recommendations, and updates on new research and projects as they publish, including the AWLF thesis above.</p>
+          <a class="btn btn-outline-light" href="https://www.linkedin.com/in/michael-scholz2" target="_blank" rel="noopener">View full profile →</a>
+        </div>
+
+        <div class="social-card">
+          <div class="head">
+            <span class="icon">
+              <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M16.5 3c.4 2.3 1.9 3.9 4.5 4.1v3.1c-1.6.1-3-.4-4.5-1.4v6.6c0 4.3-4.7 7-8.4 4.6-2.5-1.6-3.3-5-1.6-7.6 1.3-2 3.8-3 6.1-2.4v3.2c-.9-.4-2-.3-2.8.4-.8.8-.9 2.1-.2 3 .8 1 2.3 1.1 3.2.2.5-.4.7-1 .7-1.7V3h3Z" fill="currentColor"/></svg>
+            </span>
+            <h4>Cybersecurity on TikTok</h4>
+          </div>
+          <p style="color:var(--ink-soft); font-size:0.9rem;">Short breakdowns of real threats, home-lab experiments, and what a Zero Trust setup actually looks like, aimed at people outside the field.</p>
+          <a class="tiktok-bubble" href="https://www.tiktok.com/@thetravelintechguy" target="_blank" rel="noopener">
+            <span class="pulse"></span> @thetravelintechguy on TikTok
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-line">
+        <a href="mailto:michaeljlivelyscholz@gmail.com">michaeljlivelyscholz@gmail.com</a>
+        <a href="https://www.linkedin.com/in/michael-scholz2" target="_blank" rel="noopener">www.linkedin.com/in/michael-scholz2</a>
+        <a href="https://github.com/michaelscholz42" target="_blank" rel="noopener">github.com/michaelscholz42</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap-wide foot-inner">
+    <span>Michael Scholz · Raleigh / Durham, NC</span>
+    <span>Updated September 2026</span>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var toggle = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+    if (toggle && links) {
+      toggle.addEventListener('click', function(){
+        var open = links.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      links.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          links.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  })();
+
+  (function(){
+    var el = document.getElementById('typedText');
+    if (!el) return;
+    var phrases = ['Michael Scholz.', 'an Information Systems Security Officer (ISSO).', 'an AI Security Consultant.', 'a Co-Founder.'];
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion) {
+      el.textContent = phrases[0];
+      return;
+    }
+
+    var phraseIndex = 0, charIndex = 0, deleting = false;
+    var TYPE_MS = 65, DELETE_MS = 35, HOLD_MS = 1600, GAP_MS = 400;
+
+    function tick(){
+      var current = phrases[phraseIndex];
+      if (!deleting) {
+        charIndex++;
+        el.textContent = current.slice(0, charIndex);
+        if (charIndex === current.length) {
+          deleting = true;
+          setTimeout(tick, HOLD_MS);
+          return;
+        }
+        setTimeout(tick, TYPE_MS);
+      } else {
+        charIndex--;
+        el.textContent = current.slice(0, charIndex);
+        if (charIndex === 0) {
+          deleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          setTimeout(tick, GAP_MS);
+          return;
+        }
+        setTimeout(tick, DELETE_MS);
+      }
+    }
+    tick();
+  })();
+
+  (function(){
+    function playScan(face){
+      var sheen = face.querySelector('.scan-sheen');
+      if (!sheen) return;
+      sheen.classList.remove('is-active');
+      void sheen.offsetWidth;
+      sheen.classList.add('is-active');
+    }
+
+    document.querySelectorAll('.project-card').forEach(function(card){
+      var front = card.querySelector('.flip-front');
+      var back = card.querySelector('.flip-back');
+      var frontBtn = front.querySelector('.flip-trigger');
+      var backBtn = back.querySelector('.back-trigger');
+      var backLinks = back.querySelectorAll('a');
+
+      function setFlipped(flipped){
+        card.classList.toggle('is-flipped', flipped);
+        frontBtn.setAttribute('aria-expanded', String(flipped));
+        backBtn.setAttribute('aria-expanded', String(flipped));
+        front.setAttribute('aria-hidden', flipped ? 'true' : 'false');
+        back.setAttribute('aria-hidden', flipped ? 'false' : 'true');
+        frontBtn.tabIndex = flipped ? -1 : 0;
+        backBtn.tabIndex = flipped ? 0 : -1;
+        backLinks.forEach(function(link){ link.tabIndex = flipped ? 0 : -1; });
+        playScan(flipped ? back : front);
+        if (flipped) { backBtn.focus(); } else { frontBtn.focus(); }
+      }
+
+      frontBtn.addEventListener('click', function(){ setFlipped(true); });
+      backBtn.addEventListener('click', function(){ setFlipped(false); });
+    });
+  })();
+
+  (function(){
+    var timeline = document.querySelector('.timeline');
+    var dot = document.querySelector('.tl-progress-dot');
+    if (!timeline || !dot) return;
+
+    var ticking = false;
+
+    function update(){
+      ticking = false;
+      var rect = timeline.getBoundingClientRect();
+      var total = timeline.offsetHeight;
+      if (total <= 0) return;
+      var raw = (window.innerHeight / 2 - rect.top) / total;
+      var progress = Math.max(0, Math.min(1, raw));
+      var px = progress * total;
+      dot.style.transform = 'translate(-50%, ' + px + 'px)';
+    }
+
+    function onScroll(){
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(update);
+      }
+    }
+
+    update();
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', onScroll);
+  })();
+</script>
+</body>
+</html>
