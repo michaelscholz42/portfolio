@@ -1,0 +1,20 @@
+# Michael Scholz
+
+> Cybersecurity professional (M.S. Cybersecurity, Old Dominion University) working across risk and vulnerability assessment, incident response, cloud/identity security, and AI security governance. Founder & CEO of CyberShield; advisor on an AI-driven SOC platform.
+
+Michael Scholz is a Cybersecurity Analyst at Valor Cybersecurity in Norfolk, VA, and holds CompTIA Security+ and AWS Certified Cloud Practitioner certifications. His graduate research centers on the AI Workflow Lifecycle Framework (AWLF), a governance model for treating AI adoption as an ongoing organizational capability rather than a one-off software project, positioned to complement NIST CSF 2.0 and the NIST AI Risk Management Framework.
+
+## Site sections
+
+- [About](https://michaeljscholz.com/#about): Background in risk assessment, incident response, and AI governance research.
+- [Experience](https://michaeljscholz.com/#experience): Professional roles at Valor Cybersecurity and the Commonwealth Cyber Initiative, plus leadership history.
+- [Projects](https://michaeljscholz.com/#projects): The Fort (AI-driven SOC platform), CyberShield Platform, sPONG & cPONG (LAN-based CTF security tool), and a segmented enterprise-grade home lab.
+- [Research](https://michaeljscholz.com/#research): Master's thesis on the AI Workflow Lifecycle Framework (AWLF), and a coursework paper on securing AI systems.
+- [Skills](https://michaeljscholz.com/#skills): Threat detection & incident response, vulnerability assessment, security architecture, cloud platforms, scripting, and compliance frameworks.
+- [Connect](https://michaeljscholz.com/#connect): LinkedIn, TikTok (@thetravelintechguy), GitHub, and email contact.
+
+## Documents
+
+- [AWLF Master's Thesis (PDF)](https://michaeljscholz.com/awlf-thesis-scholz.pdf): Secure-by-Design AI Workflows: The AI Workflow Lifecycle Framework.
+- [Securing AI Systems (PDF)](https://michaeljscholz.com/securing-ai-systems-scholz.pdf): Adapting traditional cybersecurity to AI-specific threat vectors.
+- [sPONG/cPONG Poster (PDF)](https://michaeljscholz.com/spong-cpong-poster.pdf): ODU Knowledge & Creativity Expo poster.
