@@ -89,10 +89,6 @@ z<!DOCTYPE html>
     font-weight:700; font-size:0.98rem;
     text-decoration:none; color:var(--on-navy);
   }
-  .brand-avatar{
-    width:34px; height:34px; border-radius:50%; object-fit:cover;
-    border:1.5px solid var(--gold); flex:none;
-  }
   nav.links{display:flex; gap:28px; align-items:center;}
   nav.links a{
     font-size:0.87rem; text-decoration:none; color:var(--on-navy-soft);
@@ -181,15 +177,7 @@ z<!DOCTYPE html>
   .section-head p{color:var(--ink-soft); margin-top:10px; font-size:0.98rem;}
 
   /* ---------- about ---------- */
-  .about-grid{display:grid; grid-template-columns:220px 1fr; gap:44px; align-items:start;}
-  .about-photo{
-    width:100%; aspect-ratio:7/19; object-fit:cover; object-position:top center;
-    border-radius:var(--radius); border:1px solid var(--border); box-shadow:var(--shadow);
-  }
-  @media (max-width:720px){
-    .about-grid{grid-template-columns:1fr;}
-    .about-photo{width:160px; aspect-ratio:7/19; margin:0 auto;}
-  }
+  .about-grid{display:grid; grid-template-columns:1fr; gap:44px; align-items:start;}
   .about-body p{max-width:68ch; color:var(--ink-soft); font-size:1.02rem;}
   .about-body p + p{margin-top:14px;}
   .about-body strong{color:var(--ink); font-weight:700;}
@@ -405,7 +393,7 @@ z<!DOCTYPE html>
 
 <header class="site-nav">
   <div class="nav-inner">
-    <a href="#top" class="brand"><img class="brand-avatar" src="michael-avatar.jpg" alt="" width="34" height="34">Michael Scholz</a>
+    <a href="#top" class="brand">Michael Scholz</a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
       <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 4h14M1 8h14M1 12h14" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
     </button>
@@ -446,7 +434,6 @@ z<!DOCTYPE html>
         <h2>Where risk assessment meets AI governance</h2>
       </div>
       <div class="about-grid">
-        <img class="about-photo" src="michael-about.jpg" alt="Michael Scholz, in a graduation gown, standing in front of the Old Dominion University School of Cybersecurity sign.">
         <div>
           <div class="about-body">
             <p>I'm a cybersecurity professional with hands-on experience leading <strong>risk and vulnerability assessments</strong>, building cybersecurity architecture aligned with <strong>NIST CSF</strong>, and evaluating enterprise programs to find gaps before they become incidents. That work has meant investigating security incidents end to end: scoping indicators of compromise, running root-cause analysis, and shipping remediation like enforced MFA, conditional access, and least-privilege baselines, then briefing the outcome to both engineers and executives.</p>
