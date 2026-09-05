@@ -33,6 +33,7 @@
     --maxw:780px;
     --maxw-wide:1120px;
     --shadow: 0 1px 2px rgba(11,30,51,0.04), 0 10px 28px -14px rgba(11,30,51,0.16);
+    --focus: var(--bronze-strong);
   }
 
   *{box-sizing:border-box;}
@@ -79,6 +80,7 @@
     position:sticky; top:0; z-index:50;
     background:var(--navy);
     border-bottom:1px solid rgba(255,255,255,0.08);
+    --focus: var(--gold);
   }
   .nav-inner{
     max-width:var(--maxw-wide); margin:0 auto; padding:16px 28px;
@@ -119,7 +121,7 @@
     nav.links.open a{padding:10px 2px;}
   }
 
-  :focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+  :focus-visible{outline:2px solid var(--focus); outline-offset:2px;}
 
   /* ---------- hero (dark navy) ---------- */
   .hero{
@@ -128,6 +130,7 @@
       linear-gradient(180deg, var(--navy) 0%, var(--navy) 100%);
     padding:88px 0 76px;
     border-bottom:3px solid var(--gold);
+    --focus: var(--gold);
   }
   .hero .eyebrow{color:var(--gold); display:block; margin-bottom:20px;}
   .type-heading{
@@ -271,7 +274,7 @@
     align-items:center; justify-content:center; text-align:center;
     width:100%; height:100%; padding:30px; cursor:pointer; position:relative;
   }
-  .flip-trigger:focus-visible{outline:2px solid var(--gold); outline-offset:-3px;}
+  .flip-trigger:focus-visible{outline:2px solid var(--focus); outline-offset:-3px;}
   .project-icon{width:32px; height:32px; color:var(--bronze-strong); flex:none;}
   .flip-front h3{font-size:1.3rem; margin-top:18px;}
   .front-status{
@@ -296,7 +299,7 @@
     display:inline-flex; align-items:center; gap:5px; flex:none; white-space:nowrap;
   }
   .back-trigger:hover{color:var(--bronze-strong);}
-  .back-trigger:focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+  .back-trigger:focus-visible{outline:2px solid var(--focus); outline-offset:2px;}
   .flip-back p.desc{margin-top:12px; font-size:0.87rem; color:var(--ink-soft);}
   .flip-back p.role{margin-top:12px; font-size:0.82rem; color:var(--ink-faint);}
   .flip-back p.role strong{color:var(--ink-soft); font-weight:700;}
@@ -338,7 +341,7 @@
   @media (max-width:820px){ .skills-grid{grid-template-columns:repeat(2,1fr);} }
   @media (max-width:560px){ .skills-grid{grid-template-columns:1fr;} }
   .skill-group .eyebrow{color:var(--navy);}
-  .skill-group h4{font-size:1rem; font-weight:700; margin-top:8px; color:var(--ink);}
+  .skill-group h3{font-size:1rem; font-weight:700; margin-top:8px; color:var(--ink);}
   .skill-group ul{list-style:none; margin:14px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:7px;}
   .skill-group li{
     font-size:0.76rem; font-weight:600; color:var(--ink-soft);
@@ -369,7 +372,7 @@
     width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center;
     background:var(--navy); color:var(--gold-bright); flex:none;
   }
-  .social-card h4{font-size:1.02rem; font-weight:700; color:var(--ink);}
+  .social-card h3{font-size:1.02rem; font-weight:700; color:var(--ink);}
 
   .contact-line{
     display:flex; flex-wrap:wrap; gap:14px 28px; align-items:center; justify-content:center; margin-top:10px;
@@ -431,6 +434,7 @@
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">About</p>
+        <h2 class="sr-only">About</h2>
       </div>
       <div class="about-grid">
         <div>
@@ -513,7 +517,7 @@
           <div class="flip-inner">
             <div class="flip-face flip-front">
               <span class="scan-sheen" aria-hidden="true"></span>
-              <button class="flip-trigger" type="button" aria-expanded="false" aria-label="Show details for The Fort">
+              <button class="flip-trigger" type="button" aria-expanded="false" aria-label="Show details for The Fort. Live, 2 customers.">
                 <svg class="project-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3.5 19 6.3v5c0 5.1-3.3 8.6-7 9.9-3.7-1.3-7-4.8-7-9.9v-5L12 3.5Z"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg>
                 <h3>The Fort</h3>
                 <span class="front-status live"><span class="dot"></span>Live, 2 customers</span>
@@ -541,7 +545,7 @@
           <div class="flip-inner">
             <div class="flip-face flip-front">
               <span class="scan-sheen" aria-hidden="true"></span>
-              <button class="flip-trigger" type="button" aria-expanded="false" aria-label="Show details for CyberShield Platform">
+              <button class="flip-trigger" type="button" aria-expanded="false" aria-label="Show details for CyberShield Platform. In beta.">
                 <svg class="project-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 11 12 4l8 7"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg>
                 <h3>CyberShield Platform</h3>
                 <span class="front-status build"><span class="dot"></span>In beta</span>
@@ -570,7 +574,7 @@
           <div class="flip-inner">
             <div class="flip-face flip-front">
               <span class="scan-sheen" aria-hidden="true"></span>
-              <button class="flip-trigger" type="button" aria-expanded="false" aria-label="Show details for sPONG and cPONG">
+              <button class="flip-trigger" type="button" aria-expanded="false" aria-label="Show details for sPONG and cPONG. Presented, ODU Expo.">
                 <svg class="project-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="7" width="2.2" height="10" rx="1"/><rect x="17.8" y="7" width="2.2" height="10" rx="1"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/></svg>
                 <h3>sPONG &amp; cPONG</h3>
                 <span class="front-status academic"><span class="dot"></span>Presented, ODU Expo</span>
@@ -600,7 +604,7 @@
           <div class="flip-inner">
             <div class="flip-face flip-front">
               <span class="scan-sheen" aria-hidden="true"></span>
-              <button class="flip-trigger" type="button" aria-expanded="false" aria-label="Show details for Enterprise-Grade Home Lab">
+              <button class="flip-trigger" type="button" aria-expanded="false" aria-label="Show details for Enterprise-Grade Home Lab. Operational.">
                 <svg class="project-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4.5" y="4.5" width="15" height="6" rx="1"/><rect x="4.5" y="13.5" width="15" height="6" rx="1"/><circle cx="8" cy="7.5" r="0.9" fill="currentColor" stroke="none"/><circle cx="8" cy="16.5" r="0.9" fill="currentColor" stroke="none"/></svg>
                 <h3>Enterprise-Grade Home Lab</h3>
                 <span class="front-status build"><span class="dot"></span>Operational</span>
@@ -674,7 +678,7 @@
       <div class="skills-grid">
         <div class="skill-group">
           <p class="eyebrow">Detect &amp; Respond</p>
-          <h4>Threat Detection &amp; Incident Response</h4>
+          <h3>Threat Detection &amp; Incident Response</h3>
           <ul>
             <li>Azure Log Analytics</li><li>SIEM fundamentals</li><li>Log analysis</li>
             <li>AI-driven detection</li><li>Emergency response</li><li>Forensic analysis</li>
@@ -682,14 +686,14 @@
         </div>
         <div class="skill-group">
           <p class="eyebrow">Assess &amp; Exploit</p>
-          <h4>Vulnerability Assessment</h4>
+          <h3>Vulnerability Assessment</h3>
           <ul>
             <li>Nmap</li><li>Wireshark</li><li>Kali Linux</li>
           </ul>
         </div>
         <div class="skill-group">
           <p class="eyebrow">Design &amp; Govern</p>
-          <h4>Security Architecture</h4>
+          <h3>Security Architecture</h3>
           <ul>
             <li>Zero Trust</li><li>CIA Triad</li>
             <li>IAM</li><li>Network segmentation</li><li>IDS / IPS</li>
@@ -697,7 +701,7 @@
         </div>
         <div class="skill-group">
           <p class="eyebrow">Deploy</p>
-          <h4>Cloud &amp; Platforms</h4>
+          <h3>Cloud &amp; Platforms</h3>
           <ul>
             <li>AWS</li><li>Microsoft Azure</li><li>Microsoft Entra ID</li><li>Microsoft 365</li>
             <li>Linux (Ubuntu, Kali)</li><li>macOS</li><li>Windows</li>
@@ -705,14 +709,14 @@
         </div>
         <div class="skill-group">
           <p class="eyebrow">Automate</p>
-          <h4>Scripting &amp; Tooling</h4>
+          <h3>Scripting &amp; Tooling</h3>
           <ul>
             <li>Python</li><li>Bash</li><li>PowerShell</li>
           </ul>
         </div>
         <div class="skill-group">
           <p class="eyebrow">Comply</p>
-          <h4>Frameworks &amp; Compliance</h4>
+          <h3>Frameworks &amp; Compliance</h3>
           <ul>
             <li>NIST CSF 2.0</li><li>NIST AI RMF</li><li>HIPAA</li><li>Post-incident documentation</li><li>Gap analysis</li>
           </ul>
@@ -752,7 +756,7 @@
             <span class="icon">
               <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z" fill="currentColor"/></svg>
             </span>
-            <h4>I'm on LinkedIn</h4>
+            <h3>I'm on LinkedIn</h3>
           </div>
           <p style="color:var(--ink-soft); font-size:0.9rem;">This is where I keep my professional record: experience, recommendations, and updates on new research and projects as they publish.</p>
           <a class="btn btn-outline-light" href="https://www.linkedin.com/in/michael-scholz2" target="_blank" rel="noopener">View full profile →</a>
@@ -763,7 +767,7 @@
             <span class="icon">
               <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M16.5 3c.4 2.3 1.9 3.9 4.5 4.1v3.1c-1.6.1-3-.4-4.5-1.4v6.6c0 4.3-4.7 7-8.4 4.6-2.5-1.6-3.3-5-1.6-7.6 1.3-2 3.8-3 6.1-2.4v3.2c-.9-.4-2-.3-2.8.4-.8.8-.9 2.1-.2 3 .8 1 2.3 1.1 3.2.2.5-.4.7-1 .7-1.7V3h3Z" fill="currentColor"/></svg>
             </span>
-            <h4>I post on TikTok</h4>
+            <h3>I post on TikTok</h3>
           </div>
           <p style="color:var(--ink-soft); font-size:0.9rem;">I share short breakdowns of real threats, home-lab experiments, and what a Zero Trust setup actually looks like, aimed at people outside the field.</p>
           <a class="btn btn-outline-light" href="https://www.tiktok.com/@thetravelintechguy" target="_blank" rel="noopener">@thetravelintechguy on TikTok →</a>
