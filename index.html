@@ -359,8 +359,7 @@
   .cert p{font-size:0.83rem; color:var(--ink-soft); margin:4px 0 0;}
 
   /* ---------- connect ---------- */
-  .connect-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
-  @media (max-width:760px){ .connect-grid{grid-template-columns:1fr;} }
+  .connect-grid{display:grid; grid-template-columns:1fr; gap:24px; max-width:420px; margin:0 auto;}
 
   .social-card{
     border:1px solid var(--border); border-radius:var(--radius);
@@ -747,7 +746,7 @@
       <div class="section-head">
         <p class="eyebrow">Connect</p>
         <h2>Find the rest of the work</h2>
-        <p>The professional record lives on LinkedIn; the more casual breakdown of cybersecurity concepts lives on TikTok.</p>
+        <p>The professional record lives on LinkedIn.</p>
       </div>
 
       <div class="connect-grid">
@@ -760,17 +759,6 @@
           </div>
           <p style="color:var(--ink-soft); font-size:0.9rem;">This is where I keep my professional record: experience, recommendations, and updates on new research and projects as they publish.</p>
           <a class="btn btn-outline-light" href="https://www.linkedin.com/in/michael-scholz2" target="_blank" rel="noopener">View full profile →</a>
-        </div>
-
-        <div class="social-card">
-          <div class="head">
-            <span class="icon">
-              <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M16.5 3c.4 2.3 1.9 3.9 4.5 4.1v3.1c-1.6.1-3-.4-4.5-1.4v6.6c0 4.3-4.7 7-8.4 4.6-2.5-1.6-3.3-5-1.6-7.6 1.3-2 3.8-3 6.1-2.4v3.2c-.9-.4-2-.3-2.8.4-.8.8-.9 2.1-.2 3 .8 1 2.3 1.1 3.2.2.5-.4.7-1 .7-1.7V3h3Z" fill="currentColor"/></svg>
-            </span>
-            <h3>I post on TikTok</h3>
-          </div>
-          <p style="color:var(--ink-soft); font-size:0.9rem;">I share short breakdowns of real threats, home-lab experiments, and what a Zero Trust setup actually looks like, aimed at people outside the field.</p>
-          <a class="btn btn-outline-light" href="https://www.tiktok.com/@thetravelintechguy" target="_blank" rel="noopener">@thetravelintechguy on TikTok →</a>
         </div>
       </div>
 
